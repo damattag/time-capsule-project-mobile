@@ -1,7 +1,7 @@
-import { View, Text, TouchableOpacity } from "react-native";
 import { useEffect } from "react";
-import { useAuthRequest, makeRedirectUri } from "expo-auth-session";
 import { useRouter } from "expo-router";
+import { Text, TouchableOpacity, View } from "react-native";
+import { makeRedirectUri, useAuthRequest } from "expo-auth-session";
 import * as SecureStore from "expo-secure-store";
 
 import NLWLogo from "../src/assets/nlw-spacetime-logo.svg";
@@ -11,15 +11,15 @@ const discovery = {
   authorizationEndpoint: "https://github.com/login/oauth/authorize",
   tokenEndpoint: "https://github.com/login/oauth/access_token",
   revocationEndpoint:
-    "https://github.com/settings/connections/applications/dc1e22655bb462ea2a46",
+    "https://github.com/settings/connections/applications/d26f194cc5d5132a51be",
 };
 
 export default function App() {
   const router = useRouter();
 
-  const [response, signInWithGithub] = useAuthRequest(
+  const [, response, signInWithGithub] = useAuthRequest(
     {
-      clientId: "dc1e22655bb462ea2a46",
+      clientId: "d26f194cc5d5132a51be",
       scopes: ["identity"],
       redirectUri: makeRedirectUri({
         scheme: "nlwspacetime",
@@ -41,11 +41,12 @@ export default function App() {
   }
 
   useEffect(() => {
-    /* console.log(
-      makeRedirectUri({
-        scheme: "nlwspacetime",
-      })
-    ); */
+    // console.log(
+    //   'response',
+    //   makeRedirectUri({
+    //     scheme: 'nlwspacetime',
+    //   }),
+    // )
 
     if (response?.type === "success") {
       const { code } = response.params;
@@ -58,6 +59,7 @@ export default function App() {
     <View className="flex-1 items-center px-8 py-10">
       <View className="flex-1 items-center justify-center gap-6">
         <NLWLogo />
+
         <View className="space-y-2">
           <Text className="text-center font-title text-2xl leading-tight text-gray-50">
             Sua cápsula do tempo
