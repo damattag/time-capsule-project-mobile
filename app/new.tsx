@@ -90,7 +90,7 @@ export default function NewMemory() {
         <NLWLogo />
 
         <Link href="/memories" asChild>
-          <TouchableOpacity className="h-10 w-10 items-center justify-center rounded-full bg-purple-500">
+          <TouchableOpacity className="h-9 w-9 items-center justify-center rounded-full bg-purple-500">
             <Icon name="arrow-left" size={16} color="#fff" />
           </TouchableOpacity>
         </Link>
@@ -115,7 +115,6 @@ export default function NewMemory() {
           className="h-32 items-center justify-center rounded-lg border border-dashed border-gray-500 bg-black/20"
         >
           {preview ? (
-            // eslint-disable-next-line
             <Image
               source={{ uri: preview }}
               className="h-full w-full rounded-lg object-cover"
