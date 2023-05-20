@@ -19,7 +19,7 @@ interface Memory {
   id: string;
 }
 
-export default function NewMemory() {
+export default function Memories() {
   const { bottom, top } = useSafeAreaInsets();
   const router = useRouter();
   const [memories, setMemories] = useState<Memory[]>([]);
@@ -44,7 +44,7 @@ export default function NewMemory() {
 
   useEffect(() => {
     loadMemories();
-  }, [loadMemories]);
+  }, [setMemories]);
 
   return (
     <ScrollView
