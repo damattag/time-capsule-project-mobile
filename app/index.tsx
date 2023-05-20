@@ -19,7 +19,7 @@ export default function App() {
 
   const [, response, signInWithGithub] = useAuthRequest(
     {
-      clientId: "d26f194cc5d5132a51be",
+      clientId: "dc1e22655bb462ea2a46",
       scopes: ["identity"],
       redirectUri: makeRedirectUri({
         scheme: "nlwspacetime",
@@ -41,12 +41,12 @@ export default function App() {
   }
 
   useEffect(() => {
-    // console.log(
-    //   'response',
-    //   makeRedirectUri({
-    //     scheme: 'nlwspacetime',
-    //   }),
-    // )
+    /* console.log(
+      "response",
+      makeRedirectUri({
+        scheme: "nlwspacetime",
+      })
+    ); */
 
     if (response?.type === "success") {
       const { code } = response.params;
